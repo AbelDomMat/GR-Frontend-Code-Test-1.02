@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Bet } from './bet';
+import { from } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
@@ -17,6 +19,7 @@ export class AppComponent implements OnInit {
   result: Bet = new Bet('0', 'grey');
   resulttxt: string = '';
   resultcss: string = '';
+  badbet: boolean = false;
 
   ngOnInit(): void {
     this.clearSelect();
@@ -27,6 +30,7 @@ export class AppComponent implements OnInit {
     this.betsbutton = [];
     this.moneybet = 0;
     this.moneybetbox = 0;
+    this.badbet = false;
 
     // Ini numbers
     this.betsbutton.push(new Bet('1', 'numbutton backdarkred'));
@@ -58,21 +62,31 @@ export class AppComponent implements OnInit {
   }
 
   startbet() {
-    this.moneybet = this.moneybet + (this.moneybetbox * 5);
-    console.log(this.moneybet);
+    if (this.moneybetbox == 0) {
+      this.badbet = true;
+    } else {
+      this.badbet = false;
+      this.moneybet = this.moneybet + (this.moneybetbox * 5);
+    }
   }
 
   startlottery() {
-    this.rand = Math.floor((Math.random() * 8) + 1);
-    this.result = this.betsbutton.filter(x => x.number == this.rand.toString())[0];
-    if (this.betsnum.filter(x => x.number == this.result.number.toString())[0] != null) {
-      this.resulttxt = 'YOU WON';
-      this.resultcss = 'textgreen';
-      this.moneybet = this.moneybet * 1.5;
+    if (this.moneybet == 0) {
+      this.badbet = true;
     } else {
-      this.resulttxt = 'YOU LOST';
-      this.resultcss = 'textred';
+      this.badbet = false;
+      this.rand = Math.floor((Math.random() * 8) + 1);
+      this.result = this.betsbutton.filter(x => x.number == this.rand.toString())[0];
+      if (this.betsnum.filter(x => x.number == this.result.number.toString())[0] != null) {
+        this.moneybet = this.moneybet * 1.5;
+        this.resulttxt = 'YOU WON ' + this.moneybet + '€';
+        this.resultcss = 'textgreen';
+      } else {
+        this.resulttxt = 'YOU LOST';
+        this.resultcss = 'textred';
+        this.moneybet = 0;
+      }
+      this.lottery = true;
     }
-    this.lottery = true;
   }
 }
