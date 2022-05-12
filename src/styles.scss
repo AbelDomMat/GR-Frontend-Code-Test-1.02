@@ -1,1 +1,140 @@
 /* You can add global styles to this file, and also import other style files */
+$font-stack: Helvetica, sans-serif;
+$black: rgb(0, 0, 0);
+$white: rgb(255, 255, 255);
+$dark-red: #d25454;
+$light-red: #fceced;
+$dark-orange: #f5c830;
+$light-orange: #fef8e4;
+$dark-green: #46a562;
+$light-green: #eaeefa;
+$dark-blue: #1a5bb7;
+$light-blue: #2491fa;
+$grey: #f3f2f9;
+
+body {
+  font: 100% $font-stack;
+  font-size: x-large;
+  color: $black;
+  background-color: $grey;
+  border-left: 0.2rem solid $dark-blue;
+}
+button {
+  border: none;
+  font-size: x-large;
+  text-align: center;
+  cursor: pointer;
+}
+
+.backdarkred {
+  background-color: $dark-red;
+}
+.backlightred {
+  background-color: $light-red;
+}
+.backdarkorange {
+  background-color: $dark-orange;
+}
+.backlightorange {
+  background-color: $light-orange;
+}
+.backdarkgreen {
+  background-color: $dark-green;
+}
+.backlightgreen {
+  background-color: $light-green;
+}
+.backgrey {
+  background-color: $grey;
+}
+.bet {
+  grid-column: 3 / 4;
+  grid-row: 1 / 4;
+  background-color: $white;
+  padding-top: 5%;
+  padding-left: 2%;
+  text-align: center;
+}
+.betbutton {
+  width: 100%;
+  color: $white;
+  background-color: $light-blue;
+  padding: 1rem 2rem;
+}
+.betbuttonaux {
+  width: auto;
+  color: $white;
+  background-color: $light-blue;
+  margin-left: 2%;
+  padding: 1rem 2rem;
+}
+.betinput {
+  border: 0.2rem solid $grey;
+  font: 100% $font-stack;
+  font-size: x-large;
+  color: $black;
+}
+.betnum {
+  width: auto;
+  color: $black;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1%;
+  font-weight: bold;
+}
+.betlabel {
+  border: 0.2rem solid $grey;
+  background-color: $grey;
+}
+.centertxt {
+  text-align: center;
+}
+.numbutton {
+  width: auto;
+  color: $black;
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  margin-right: 1%;
+  font-weight: bold;
+}
+.pad1 {
+  padding: 1rem;
+}
+.selectbutton {
+  width: auto;
+  color: $light-blue;
+  background-color: $white;
+}
+.selection {
+  grid-column: 1 / 3;
+  grid-row: 1 / 6;
+  background-color: $white;
+  padding-top: 10%;
+  padding-left: 7%;
+}
+.textgreen {
+  color: $dark-green;
+}
+.textred {
+  color: $dark-red;
+}
+.total {
+  grid-column: 3 / 4;
+  grid-row: 4 / 6;
+  text-align: center;
+  padding-top: 5%;
+}
+.tp2 {
+  padding-top: 2%;
+}
+.tp5 {
+  padding-top: 5%;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+  grid-auto-rows: minmax(100px, auto);
+}
